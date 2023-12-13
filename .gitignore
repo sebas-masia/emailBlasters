@@ -1,0 +1,16 @@
+# .gitignore
+
+# Python virtual environment
+.venv/
+
+# Compiled Python files
+__pycache__/
+
+# Compiled bytecode
+*.pyc
+*.pyo
+*.pyd
+
+# Other generated files
+.idea/
+*.DS_Store
