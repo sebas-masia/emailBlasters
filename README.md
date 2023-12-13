@@ -1,52 +1,48 @@
 # Panjiva Email Blaster
 
-## Overview
+This tool automates the process of cleaning, verifying, and sending emails using data extracted from Panjiva.
 
-Panjiva Email Blaster is a tool designed to clean, verify, and send emails to a list of contacts extracted from Panjiva. The application is packaged as a standalone executable, making it easy to use without requiring a Python installation.
+## Requirements
 
-## Features
-
-- **Data Cleanup:** Remove invalid characters and prefixes from email addresses.
-- **Email Verification:** Check the validity of emails using the Hunter.io API.
-- **Email Sending:** Send HTML emails to verified contacts.
+- Python installed on your computer. You can download it from [python.org](https://www.python.org/downloads/).
+- Outlook desktop application.
 
 ## Getting Started
 
-### Prerequisites
+1. **Clone the Repository:**
+   - Open a terminal or command prompt.
+   - Run the following command to clone the repository to your local machine:
+     ```
+     git clone https://github.com/sebas-masia/emailBlasters.git
+     ```
+   - Replace `sebas-masia` with your GitHub username.
 
-- [Download the latest release](#) of Panjiva Email Blaster for your operating system.
+2. **Install Dependencies:**
+   - Navigate to the cloned repository folder:
+     ```
+     cd emailBlasters
+     ```
+   - Install the required Python packages by running:
+     ```
+     pip install -r requirements.txt
+     ```
 
-### Installation
+3. **Prepare Data:**
+   - Save your input CSV file with the name `input_data.csv` in the `panjiva_data` folder.
 
-1. Extract the downloaded ZIP file.
-2. Place your Panjiva dataset in the `panjiva_data` folder as `input_data.csv`.
+4. **Run the Script:**
+   - Make sure the Outlook desktop application is open and running.
+   - Run the following command to execute the main script:
+     ```
+     python main_script.py
+     ```
+   - This will start the automated process of cleaning, verifying, and sending emails.
 
-## Usage
+5. **Check Results:**
+   - After the process completes, ensure that only `input_data.csv` and `top_img.png` remain in the `panjiva_data` folder.
+   - Confirm that `input_data.csv` is not in the generated `processed` folder.
 
-1. **Data Cleanup:**
-   - Double-click the executable (`panjiva_email_blaster.exe` or equivalent) to run the cleanup process.
-   - Review the cleaned data in the `panjiva_data` folder (`cleaned_data.csv`).
+## Notes
 
-2. **Email Verification:**
-   - Run the verification process by executing the corresponding executable.
-   - View the verification results in the `panjiva_data` folder (`verification_results.csv`).
+- If you encounter any issues, please refer to the [GitHub Issues](https://github.com/sebas-masia/emailBlasters/issues) or [contact support](mailto:sebastianmasia@gmail.com).
 
-3. **Email Sending:**
-   - Run the email sending process by executing the corresponding executable.
-   - Check the console for progress and errors.
-
-## Troubleshooting
-
-- If you encounter issues, ensure that your Panjiva dataset is correctly named and placed in the `panjiva_data` folder.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- Thanks to [Hunter.io](https://hunter.io/) for providing email verification services.
-
----
-
-**Note:** Customize the download link in the "Prerequisites" section with the actual link to your release file.
