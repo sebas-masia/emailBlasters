@@ -10,20 +10,23 @@ This tool automates the process of cleaning, verifying, and sending emails using
 ## Getting Started
 
 1. **Clone the Repository:**
-   - Open a terminal or command prompt.
-   - Run the following command to clone the repository to your local machine:
+   - Open PowerShell. You can do this by pressing `Win + X` and selecting "Windows PowerShell" or "PowerShell" from the menu.
+   - Navigate to the directory where you want to clone the repository:
+     ```powershell
+     cd /path/to/desired/directory
      ```
+   - Run the following command to clone the repository to your local machine:
+     ```powershell
      git clone https://github.com/sebas-masia/emailBlasters.git
      ```
-   - Replace `sebas-masia` with your GitHub username.
 
 2. **Install Dependencies:**
    - Navigate to the cloned repository folder:
-     ```
+     ```powershell
      cd emailBlasters
      ```
    - Install the required Python packages by running:
-     ```
+     ```powershell
      pip install -r requirements.txt
      ```
 
@@ -33,7 +36,7 @@ This tool automates the process of cleaning, verifying, and sending emails using
 4. **Run the Script:**
    - Make sure the Outlook desktop application is open and running.
    - Run the following command to execute the main script:
-     ```
+     ```powershell
      python main_script.py
      ```
    - This will start the automated process of cleaning, verifying, and sending emails.
@@ -45,4 +48,4 @@ This tool automates the process of cleaning, verifying, and sending emails using
 ## Notes
 
 - If you encounter any issues, please refer to the [GitHub Issues](https://github.com/sebas-masia/emailBlasters/issues) or [contact support](mailto:sebastianmasia@gmail.com).
-
+- No GitHub account is required to clone the repository.
