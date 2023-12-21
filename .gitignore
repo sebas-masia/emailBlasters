@@ -2,8 +2,8 @@
 
 # Python virtual environment
 .venv/
-/panjiva_data/
-/processed/
+panjiva_data/
+processed/
 
 # Compiled Python files
 __pycache__/
