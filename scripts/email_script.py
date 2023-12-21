@@ -3,7 +3,7 @@ import win32com.client
 import os
 
 # Function to send an HTML email
-def send_html_email(subject, html_body, to_email, image_path):
+def send_html_email(subject, html_body, to_email):
     ol = win32com.client.Dispatch('Outlook.Application')
     olmailitem = 0x0
     newmail = ol.CreateItem(olmailitem)
@@ -14,14 +14,14 @@ def send_html_email(subject, html_body, to_email, image_path):
     newmail.HTMLBody = html_body
 
     # Attach the image with Content-ID (CID)
-    attachment = newmail.Attachments.Add(image_path, 1, 0, "ROK_Lanes_Logo")
-    image_cid = "ROK_Lanes_Logo"
-    attachment.PropertyAccessor.SetProperty("http://schemas.microsoft.com/mapi/proptag/0x3712001F", image_cid)
+    # attachment = newmail.Attachments.Add(image_path, 1, 0, "ROK_Lanes_Logo")
+    # image_cid = "ROK_Lanes_Logo"
+    # attachment.PropertyAccessor.SetProperty("http://schemas.microsoft.com/mapi/proptag/0x3712001F", image_cid)
 
     newmail.Send()
 
 # Function to process each row of the DataFrame
-def process_row(row, signature, image_path):
+def process_row(row):
     # Check if the score is not equal to 0
     if row['score'] != 0:
         # Extract data from the DataFrame row
@@ -43,21 +43,19 @@ def process_row(row, signature, image_path):
         <html>
         <body>
             <p>{body}</p>
-            <img src= "cid:ROK_Lanes_Logo" alt='ROK Lanes Logo'>
-            <p>{signature}</p>
         </body>
         </html>
         """
 
         # Send the HTML email
-        send_html_email(subject, html_body, row['email'], image_path)
+        send_html_email(subject, html_body, row['email'])
         print(f"Email sent to {row['email']}")
 
 # Specify the file path with the correct directory structure
 # file_path = 'C:\\Users\\RokLanes\\Documents\\projects\\emailBlasters\\panjiva_data\\verification_results.csv'
 # image_path = 'C:\\Users\\RokLanes\\Documents\\projects\\emailBlasters\\panjiva_data\\top_sig.png'
 file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'panjiva_data', 'verification_results.csv')
-image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'panjiva_data', 'top_sig.png')
+# image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'panjiva_data', 'top_sig.png')
 
 # Specify your email signature
 email_signature = """
@@ -75,7 +73,7 @@ try:
 
     # Process each row in the DataFrame sequentially
     for _, row in df.iterrows():
-        process_row(row, email_signature, image_path)
+        process_row(row)
 
 except FileNotFoundError:
     print(f"File not found at the specified path: {file_path}")
